@@ -1,0 +1,30 @@
+{
+  "name": "jekaloapi",
+  "version": "1.0.0",
+  "description": "The API app for Application test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrbeyond/jekaloapi.git"
+  },
+  "author": "Beyond",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mrbeyond/jekaloapi/issues"
+  },
+  "homepage": "https://github.com/Mrbeyond/jekaloapi#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^15.0.0",
+    "express": "^4.17.2",
+    "joi": "^17.6.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.15.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.0"
+  }
+}

@@ -4,7 +4,7 @@ require('dotenv').config();
 
 app.use(express.json({limit: '50mb' }));
 app.use(express.urlencoded({extended: true, limit: '50mb',}));
-app.use(Routers);
+app.use("/api", Routers);
 
 
 app.get('/', (req,res)=>{

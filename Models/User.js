@@ -1,6 +1,5 @@
 'use strict';
-const { hack } = require('../../Utilities/hashers');
-const {db, _type} = require('../DB');
+const {db, _type} = require('./DB');
 
 const User = db.define("user", {
   id:{
@@ -19,14 +18,14 @@ const User = db.define("user", {
   username:{
     type: _type.STRING,
     unique: true,
-    validate:{
-      min: 3
-    }
+    // validate:{
+    //   min: 3
+    // }
   },  
 
   date_of_birth:{
-    type: _type.STRING
-    // allowNull: true
+    type: _type.STRING,
+    allowNull: false
   },
 
 })
@@ -40,12 +39,11 @@ const User = db.define("user", {
 User.prototype.toJSON= function(){
   let val = Object.assign({}, this.get());
   // console.log("from to json", val); 
-  delete val.password;
-  val.id = hack(val.id);
-  val.accName = val.userName? val.userName: `${val.firstName} ${val.lastName}`;
-  val.profilePic = val.profilePic?val.profilePic:'defaultDp.png'
-  val.about = val.about?val.about:"";
-  return val;
+  let {first_name, last_name, username, date_of_birth} = val;
+  let name_prefix = first_name.slice(0,1)
+  if(last_name) name_prefix += last_name.slice(0,1);
+  name_prefix = name_prefix.toString().toUpperCase();
+  return {name_prefix, first_name, last_name, username, date_of_birth};
 }
 
 User.prototype.raws= function(){

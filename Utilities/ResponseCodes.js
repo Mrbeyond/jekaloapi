@@ -4,7 +4,7 @@ module.exports ={
   success: (res, data)=>{
     return res.status(200).json({
       ...data,
-      error: false
+      // error: false
     })
   },
 
@@ -21,9 +21,10 @@ module.exports ={
   },
 
   /** The customized Intruder error response for high security purpose */
-  badRequest: (res)=>{
+  badRequest: (res, load=null)=>{
     return res.status(400).json({
-      message: 'Bad Request',
+      message: load,
+      type:"Bad request",
       error: true
     })
   },

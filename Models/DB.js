@@ -18,7 +18,7 @@ require('dotenv').config();
 //   }
 // )
 
-const CDU = process.env.CDU;
+const CDU = process.env.CLEARDB_DATABASE_URL;
 
 const sequelize = new Sequelize(CDU);
 

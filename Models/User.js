@@ -18,6 +18,7 @@ const User = db.define("user", {
   username:{
     type: _type.STRING,
     unique: true,
+    allowNull: false,
     // validate:{
     //   min: 3
     // }

@@ -5,9 +5,9 @@ const joi = require('joi')
 const { badRequest, internal } = require('../Utilities/ResponseCodes');
 
 const createUser = joi.object({
-  first_name: joi.string().required(),
-  last_name: joi.string().allow(null).allow('').optional(),
-  username: joi.string().required(),
+  first_name: joi.string().trim().required(),
+  last_name: joi.string().trim().allow(null).allow('').optional(),
+  username: joi.string().trim().required(),
   date_of_birth: joi.date().format("DD-MM-YYYY").required()
   // .regex(/^([0-9]{2})([0-9]{2})([0-9]{4})$/).required()
 })

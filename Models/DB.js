@@ -34,12 +34,12 @@ const check = async()=>{
 }
 check();
 
-const SYNC = async()=>{
-  await sequelize.sync({alter: false, force: false});
-}
 // const SYNC = async()=>{
-//   await sequelize.sync({alter: true});
+//   await sequelize.sync({alter: false, force: false});
 // }
+const SYNC = async()=>{
+  await sequelize.sync({alter: true});
+}
 SYNC();
 
 

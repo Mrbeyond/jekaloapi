@@ -36,8 +36,6 @@ class  Auths{
         let exists = await User.count({where:{username}});
         if(!exists) return notFound(res, "User not found");
         await User.destroy({where:{username}})
-        await User.destroy({where:{username: "   "}});   
-  
         return success(res, {message: "You deleted the user successfully"});
       } catch (err) {
         // console.log({err});
